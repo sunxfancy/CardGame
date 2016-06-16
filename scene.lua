@@ -40,10 +40,11 @@ local funclist = {
     'joystickremoved'
 }
 
-function scene.changeScene (s)
+function scene.changeScene(s)
     if s.isInit == nil then
         s.init()
         s.isInit = true
+        s.parent = scene
     end
     scene.nowScene = s
     for i, v in pairs(funclist) do
