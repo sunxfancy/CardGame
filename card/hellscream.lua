@@ -1,4 +1,4 @@
-basecard = dofile('card/basecard.lua')
+local basecard = require('card.basecard')
 
 local hellscream = basecard:new({
     type = "minion",
