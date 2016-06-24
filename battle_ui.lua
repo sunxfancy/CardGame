@@ -16,10 +16,12 @@ function battle_ui.init ()
     }
 end
 
+
 function battle_ui.draw (dt)
+
     for i, card in pairs(battle_ui.hands) do
         if card ~= nil then
-            card:paint(200, 200, 0)
+            love.graphics.draw(card:paint(), 200, 200, 0, 0.5, 0.5)
         end
     end
     for k,v in pairs(battle_ui.children) do

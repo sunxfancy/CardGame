@@ -6,7 +6,8 @@ local hellscream = basecard:new({
     cost = 8,
     ap = 4,
     hp = 9,
-    name = "hellscream"
+    name = "saber",
+    discribe = "回合开始时，自动获得一个随机增益效果。"
 })
 
 return hellscream
