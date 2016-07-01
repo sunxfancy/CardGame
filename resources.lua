@@ -1,9 +1,19 @@
 local resources = {
     imagePath = "res/image/",
+    cardPath = "res/card/",
     imageTable = {},
     btnPath = "res/button/",
     btnTable = {}
 }
+
+function resources.getCard(fileName)
+    local t = resources.imageTable
+    if t[fileName] == nil then
+        local fullpath = resources.cardPath .. fileName
+        t[fileName] = love.graphics.newImage(fullpath)
+    end
+    return t[fileName]
+end
 
 function resources.getImage(fileName)
     local t = resources.imageTable
@@ -11,7 +21,6 @@ function resources.getImage(fileName)
         local fullpath = resources.imagePath .. fileName
         t[fileName] = love.graphics.newImage(fullpath)
     end
-    love.graphics.draw(t[fileName], 0, 0)
     return t[fileName]
 end
 
