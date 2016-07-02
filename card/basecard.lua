@@ -33,9 +33,13 @@ local ff = function () -- 滤镜效果
 end
 
 local font = love.graphics.newFont("res/fonts/文泉驿正黑.ttf", 26)
+local font_name = love.graphics.newFont("res/fonts/文泉驿正黑.ttf", 60)
 local font_num = love.graphics.newFont("res/fonts/Montserrat-Bold.ttf", 72)
 
-
+-- 卡片属性修改后，注意要调用repaint清除当前的绘图缓存
+function basecard:repaint()
+    self.canvas = nil
+end
 
 function basecard:paint()
     if self.canvas ~= nil then
@@ -56,6 +60,10 @@ function basecard:paint()
 
     -- 绘制描述内容
     love.graphics.printf(self.discribe, 60, ih+20, cw-120)
+
+    -- 绘制名字
+    love.graphics.setFont(font_name)
+    love.graphics.printf(self.name, 0, ih-80, cw, "center")
 
     -- 绘制攻击,血量,魔耗
     love.graphics.draw(self.atk_img, 0, ch-100)
