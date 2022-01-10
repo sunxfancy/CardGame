@@ -50,7 +50,7 @@ function basecard:paint()
     end
     local canvas = love.graphics.newCanvas(cw, ch) -- canvas size
     local old_cvs = love.graphics.getCanvas()
-    love.graphics.setCanvas(canvas)
+    love.graphics.setCanvas{canvas, stencil=true}
     love.graphics.setFont(font)
     love.graphics.stencil(ff, "replace", 1)
     love.graphics.setStencilTest("greater", 0)
